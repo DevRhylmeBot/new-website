@@ -222,6 +222,14 @@ const Footer = () => {
                     Testimonial
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/#projects"
+                    className="mb-3 inline-block text-base text-gray-7 hover:text-primary"
+                  >
+                    Documentation
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
