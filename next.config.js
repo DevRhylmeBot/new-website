@@ -4,8 +4,8 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['i.ibb.co'], // Allow image loading from this domain
+    domains: ['i.ibb.co'],
   },
-}
+};
 
 module.exports = nextConfig;
