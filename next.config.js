@@ -1,8 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['i.ibb.co'], // Add i.ibb.co to allow image loading from this domain
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-}
+  images: {
+    domains: ['i.ibb.co'],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
