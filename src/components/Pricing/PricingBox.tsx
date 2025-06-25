@@ -3,6 +3,7 @@ import React from "react";
 import OfferList from "./OfferList";
 import { Price } from "@/types/price";
 import { CheckmarkIcon } from "react-hot-toast";
+import PricingBox from './PricingBox';
 
 const PricingBox = ({ product }: { product: Price }) => {
   // POST request
