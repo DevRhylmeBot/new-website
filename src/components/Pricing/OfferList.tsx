@@ -3,7 +3,6 @@
 import React from "react";
 import Pricing from "@/components/Pricing";
 import { Price } from "@/types/price";
-import Breadcrumb from "@/components/Breadcrumb";
 import Faq from "@/components/Faq";
 
 const dummyProducts: Price[] = [
