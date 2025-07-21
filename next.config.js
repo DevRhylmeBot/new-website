@@ -1,11 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: {
-    domains: ['i.ibb.co'],
-  },
+  // Add any other config options here
 };
 
 module.exports = nextConfig;
