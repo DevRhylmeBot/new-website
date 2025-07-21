@@ -16,7 +16,7 @@ const teamData: TeamType[] = [
   {
     id: 2,
     name: "Rishi Mondal",
-    designation: "Founder and CTO",
+    designation: "CTO",
     image: "/images/team/Rishi_Mondal.jpg",
     linkedinLink: "https://www.linkedin.com/in/rishi-mondal-5238b2282/",
     githubLink: "https://github.com/MAVRICK-1",
