@@ -1,31 +1,49 @@
-"use client";
-import SectionTitle from "../Common/SectionTitle";
-import { pricingData } from "@/stripe/pricingData";
+import axios from "axios";
+import React from "react";
+import { Price } from "@/types/price";
+import { CheckmarkIcon } from "react-hot-toast";
 
-const Pricing = () => {
+const PricingBox = ({ product }: { product: Price }) => {
+  const handleSubscription = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const { data } = await axios.post("/api/payment", {
+      priceId: product.id,
+    });
+    window.location.href = data.url;
+  };
+
   return (
-    <section
-      id="pricing"
-      className="relative z-20 overflow-hidden bg-white pb-12 pt-20 dark:bg-dark lg:pb-[90px] lg:pt-[120px]"
-    >
-      <div className="container">
-        <div className="mb-[60px]">
-          <SectionTitle
-            subtitle="Pricing Table"
-            title="Our Pricing Plan"
-            paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
-            center
-          />
-        </div>
-
-        <div className="-mx-4 flex flex-wrap  justify-center" >
-          {pricingData.map((product, i) => (
-            <PricingBox key={i} product={product} />
-          ))}     
-        </div>
+    <div className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-10">
+      <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2">
+        <h3 className="mb-4 text-xl font-semibold text-black dark:text-white">
+          {product.nickname}
+        </h3>
+        <p className="mb-6 text-lg text-gray-700 dark:text-gray-300">
+          ${(product.unit_amount! / 100).toFixed(2)} / month
+        </p>
+        <ul className="mb-6 list-inside list-disc text-gray-600 dark:text-gray-400">
+          <li className="mb-2 flex items-center gap-2">
+            <CheckmarkIcon />
+            Feature 1
+          </li>
+          <li className="mb-2 flex items-center gap-2">
+            <CheckmarkIcon />
+            Feature 2
+          </li>
+          <li className="mb-2 flex items-center gap-2">
+            <CheckmarkIcon />
+            Feature 3
+          </li>
+        </ul>
+        <button
+          onClick={handleSubscription}
+          className="w-full rounded bg-primary px-6 py-3 text-white hover:bg-opacity-90"
+        >
+          Choose Plan
+        </button>
       </div>
-    </section>
+    </div>
   );
 };
 
-export default Pricing;
+export default PricingBox;
