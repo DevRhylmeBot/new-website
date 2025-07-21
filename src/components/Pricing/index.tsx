@@ -1,49 +1,21 @@
-import axios from "axios";
+// src/components/Pricing/index.tsx
+
 import React from "react";
+import PricingBox from "./PricingBox";
 import { Price } from "@/types/price";
-import { CheckmarkIcon } from "react-hot-toast";
 
-const PricingBox = ({ product }: { product: Price }) => {
-  const handleSubscription = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const { data } = await axios.post("/api/payment", {
-      priceId: product.id,
-    });
-    window.location.href = data.url;
-  };
+interface PricingProps {
+  products: Price[];
+}
 
+const Pricing = ({ products }: PricingProps) => {
   return (
-    <div className="w-full px-4 md:w-1/2 lg:w-1/3 xl:w-1/4 mb-10">
-      <div className="rounded-lg bg-white p-8 shadow-lg dark:bg-dark-2">
-        <h3 className="mb-4 text-xl font-semibold text-black dark:text-white">
-          {product.nickname}
-        </h3>
-        <p className="mb-6 text-lg text-gray-700 dark:text-gray-300">
-          ${(product.unit_amount! / 100).toFixed(2)} / month
-        </p>
-        <ul className="mb-6 list-inside list-disc text-gray-600 dark:text-gray-400">
-          <li className="mb-2 flex items-center gap-2">
-            <CheckmarkIcon />
-            Feature 1
-          </li>
-          <li className="mb-2 flex items-center gap-2">
-            <CheckmarkIcon />
-            Feature 2
-          </li>
-          <li className="mb-2 flex items-center gap-2">
-            <CheckmarkIcon />
-            Feature 3
-          </li>
-        </ul>
-        <button
-          onClick={handleSubscription}
-          className="w-full rounded bg-primary px-6 py-3 text-white hover:bg-opacity-90"
-        >
-          Choose Plan
-        </button>
-      </div>
+    <div className="flex flex-wrap justify-center gap-6 py-10">
+      {products.map((product) => (
+        <PricingBox key={product.id} product={product} />
+      ))}
     </div>
   );
 };
 
-export default PricingBox;
+export default Pricing;
