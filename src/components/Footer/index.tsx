@@ -364,7 +364,7 @@ const Footer = () => {
         <div className="lg:w-1/2">
           <div className="rounded-xl p-6">
             <iframe
-              src="https://devrhylmenewsletter.substack.com/embed"
+              src="https://devrhylme1.substack.com/embed"
               className="w-full h-[320px]"
               style={{
                 border: "none",
